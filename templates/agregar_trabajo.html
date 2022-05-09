@@ -1,0 +1,133 @@
+{% extends "padre.html" %} {% block titulo %} Agregar trabajo {% endblock %} {%
+block contenido %}
+<section class="section">
+  <h3>Agregar trabajo</h3>
+  <form action="{{url_for('guardar_trabajo')}}" method="post" enctype="multipart/form-data">
+    <label for="nombre">Nombre:</label>
+    <input
+      required
+      type="text"
+      class="input"
+      placeholder="Nombre"
+      name="nombre"
+      id="nombre"
+    />
+    <label for="descripcion">Descripción</label>
+    <input
+      required
+      type="text"
+      class="input"
+      placeholder="Descripción"
+      name="descripcion"
+      id="descripcion"
+    />
+    <label for="precio">precio</label>
+    <input
+      required
+      type="number"
+      class="input"
+      placeholder="precio"
+      name="precio"
+      id="precio"
+    />
+    <button type="submit">Guardar</button>
+    <a href="{{url_for('trabajos')}}">Volver</a>
+
+    <h2>Seleccione una foto</h2>
+    <p>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+    </p>
+    {% if filename %}
+    <div>
+        <img src="{{ url_for('display_image', filename=filename) }}">
+    </div>
+    {% endif %}
+    <input 
+      type="file" 
+      name="file" 
+      autocomplete="off" 
+      required
+    >
+  </form>
+</section>
+{% endblock %}  
+<h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+
+    <h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+    <form method="post" action="/" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit" >
+        </p>
+    </form><h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </p>
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('display_image', filename=filename) }}">
+        </div>
+    {% endif %}
+

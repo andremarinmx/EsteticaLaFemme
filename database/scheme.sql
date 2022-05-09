@@ -8,3 +8,5 @@ CREATE TABLE trabajos(
     descripcion VARCHAR(100) NOT NULL,
     precio float NOT NULL
 );
+ALTER TABLE trabajos
+    ADD imagen VARCHAR(100);

@@ -37,7 +37,6 @@ def editar_trabajo(id):
 @app.route("/actualizar_trabajo", methods=["POST"])
 def actualizar_trabajo():
     id = request.form["id"]
-    request.files
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]

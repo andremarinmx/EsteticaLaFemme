@@ -4,6 +4,14 @@ import controlador_trabajos
 app = Flask(__name__)
 
 @app.route("/")
+def index():    
+    return render_template("index.html")
+
+@app.route("/portafolio")
+def portafolio():    
+    trabajos = controlador_trabajos.obtener_trabajos()
+    return render_template("portafolio.html", trabajos=trabajos)
+
 @app.route("/trabajos")
 def trabajos():
     trabajos = controlador_trabajos.obtener_trabajos()
@@ -46,4 +54,5 @@ def actualizar_trabajo():
     return redirect("/trabajos")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.secret_key = "1234"
+    app.run(host='0.0.0.0', port=8080, debug=True)

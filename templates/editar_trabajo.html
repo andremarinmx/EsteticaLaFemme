@@ -5,12 +5,11 @@ block contenido %}
   <form action="{{url_for('actualizar_trabajo')}}" method="post">
     {# Enviar el id en un campo oculto #}
     <input type="hidden" name="id" value="{{trabajo[0]}}" />
-    <label for="nombre">Nombre:</label>
+    <label for="nombre">Nombre</label>
     <input
       value="{{trabajo[1]}}"
       required
       type="text"
-      class="input"
       placeholder="Nombre"
       name="nombre"
       id="nombre"
@@ -20,52 +19,30 @@ block contenido %}
       value="{{trabajo[2]}}"
       required
       type="text"
-      class="input"
       placeholder="Descripción"
       name="descripcion"
       id="descripcion"
     />
-    <label for="precio">precio</label>
+    <label for="precio">Precio</label>
     <input
       value="{{trabajo[3]}}"
       required
       type="number"
-      class="input"
       placeholder="precio"
       name="precio"
       id="precio"
     />
+    <label for="imagen">Imagen</label>
+    <input
+      value="{{trabajo[4]}}"
+      required
+      type="file"
+      placeholder="Imagen"
+      name="imagen"
+      id="imagen"
+    />
     <button type="submit">Guardar</button>
     <a href="{{url_for('trabajos')}}">Volver</a>
   </form>
-
-  <h2>Select a file to upload</h2>
-    <p>
-        {% with messages = get_flashed_messages() %}
-          {% if messages %}
-            <ul>
-            {% for message in messages %}
-              <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
-    </p>
-    {% if filename %}
-        <div>
-            <img src="{{ url_for('display_image', filename=filename) }}">
-        </div>
-    {% endif %}
-    <form method="post" action="/" enctype="multipart/form-data">
-        <dl>
-            <p>
-                <input type="file" name="file" autocomplete="off" required>
-            </p>
-        </dl>
-        <p>
-            <input type="submit" value="Submit">
-        </p>
-    </form>
-
 </section>
 {% endblock %}

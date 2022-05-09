@@ -18,7 +18,10 @@ def guardar_trabajo():
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]
+    #imagen = request.form["imagen"]
+    #controlador_trabajos.insertar_trabajo(nombre, descripcion, precio, imagen)
     controlador_trabajos.insertar_trabajo(nombre, descripcion, precio)
+
     return redirect("/trabajos")
 
 @app.route("/eliminar_trabajo", methods=["POST"])
@@ -38,6 +41,8 @@ def actualizar_trabajo():
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]
+    #imagen = request.form["imagen"]
+    #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, imagen)
     controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id)
     return redirect("/trabajos")
 

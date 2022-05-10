@@ -2,8 +2,11 @@
 block contenido %}
 <section>
   <h3>Editar trabajo</h3>
-  <form action="{{url_for('actualizar_trabajo')}}" method="post">
-    {# Enviar el id en un campo oculto #}
+  <form
+    action="{{url_for('actualizar_trabajo')}}"
+    method="post"
+    enctype="multipart/form-data"
+  >
     <input type="hidden" name="id" value="{{trabajo[0]}}" />
     <label for="nombre">Nombre</label>
     <input

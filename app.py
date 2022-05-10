@@ -55,9 +55,9 @@ def actualizar_trabajo():
     imagen = request.files["imagen"]
     imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
     path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
-    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, path_imagen)
+    #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, path_imagen)
+    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id)
     return redirect("/trabajos")
 
 if __name__ == "__main__":
-    app.secret_key = "1234"
     app.run(host='0.0.0.0', port=8080, debug=True)

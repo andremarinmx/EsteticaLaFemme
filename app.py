@@ -1,7 +1,11 @@
 from flask import Flask, render_template, request, redirect
+from werkzeug.utils import secure_filename
 import controlador_trabajos
+import os
 
 app = Flask(__name__)
+
+uploads_dir = os.path.join('static/uploads')
 
 @app.route("/")
 def index():    
@@ -26,10 +30,10 @@ def guardar_trabajo():
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]
-    #imagen = request.form["imagen"]
-    #controlador_trabajos.insertar_trabajo(nombre, descripcion, precio, imagen)
-    controlador_trabajos.insertar_trabajo(nombre, descripcion, precio)
-
+    imagen = request.files["imagen"]
+    imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
+    path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
+    controlador_trabajos.insertar_trabajo(nombre, descripcion, precio, path_imagen)
     return redirect("/trabajos")
 
 @app.route("/eliminar_trabajo", methods=["POST"])
@@ -48,9 +52,10 @@ def actualizar_trabajo():
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]
-    #imagen = request.form["imagen"]
-    #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, imagen)
-    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id)
+    imagen = request.files["imagen"]
+    imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
+    path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
+    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, path_imagen)
     return redirect("/trabajos")
 
 if __name__ == "__main__":

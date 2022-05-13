@@ -21,8 +21,21 @@ def trabajos():
     trabajos = controlador_trabajos.obtener_trabajos()
     return render_template("trabajos.html", trabajos=trabajos)
 
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+@app.route("/form_login", methods=["POST, GET"])
+def form_login():
+    nombre_usuario = request.form["nombre"]
+    contraseña_usuario = request.form["contraseña"] 
+    print(nombre_usuario)
+    print(contraseña_usuario)
+    controlador_trabajos.login(nombre_usuario, contraseña_usuario)
+    return redirect("/agregar_trabajo")
+
 @app.route("/agregar_trabajo")
-def formulario_agregar_trabajo():
+def formulario_agregar_trabajo():   
     return render_template("agregar_trabajo.html")
 
 @app.route("/guardar_trabajo", methods=["POST"])
@@ -33,7 +46,8 @@ def guardar_trabajo():
     imagen = request.files["imagen"]
     imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
     path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
-    controlador_trabajos.insertar_trabajo(nombre, descripcion, precio, path_imagen)
+    id_categoria = request.form["categoria"]
+    controlador_trabajos.insertar_trabajo(nombre, descripcion, precio, path_imagen, id_categoria)
     return redirect("/trabajos")
 
 @app.route("/eliminar_trabajo", methods=["POST"])
@@ -54,7 +68,7 @@ def actualizar_trabajo():
     precio = request.form["precio"]
     imagen = request.files["imagen"]
     imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
-    path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
+    #path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
     #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, path_imagen)
     controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id)
     return redirect("/trabajos")

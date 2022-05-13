@@ -1,17 +1,17 @@
 from database.db import obtener_conexion
 
-def insertar_trabajo(nombre, descripcion, precio, path_imagen):
+def insertar_trabajo(nombre, descripcion, precio, path_imagen, id_categoria):
     conexion = obtener_conexion()
-    sql_query = "INSERT INTO trabajos(nombre, descripcion, precio, imagen) VALUES (%s, %s, %s, %s)"
+    sql_query = "INSERT INTO trabajos(nombre, descripcion, precio, imagen, id_categoria) VALUES (%s, %s, %s, %s, %s)"
     with conexion.cursor() as cursor:
-        cursor.execute(sql_query,(nombre, descripcion, precio, path_imagen))
+        cursor.execute(sql_query,(nombre, descripcion, precio, path_imagen, id_categoria))
     conexion.commit()
     conexion.close()
 
 def obtener_trabajos():
     conexion = obtener_conexion()
     trabajos = []
-    sql_query = "SELECT id, nombre, descripcion, precio, imagen FROM trabajos"
+    sql_query = "SELECT id_producto, nombre, descripcion, precio, imagen, id_categoria FROM trabajos"
     with conexion.cursor() as cursor:
         cursor.execute(sql_query)
         trabajos = cursor.fetchall()
@@ -29,7 +29,7 @@ def eliminar_trabajo(id):
 def obtener_trabajo_por_id(id):
     conexion = obtener_conexion()
     trabajo = None
-    sql_query = "SELECT id, nombre, descripcion, precio, imagen FROM trabajos WHERE id = %s"
+    sql_query = "SELECT id, nombre, descripcion, precio, categoria, imagen FROM trabajos WHERE id = %s"
     with conexion.cursor() as cursor:
         cursor.execute(sql_query, (id,))
         trabajo = cursor.fetchone()
@@ -44,5 +44,15 @@ def actualizar_trabajo(nombre, descripcion, precio, id):
     with conexion.cursor() as cursor:
         #cursor.execute(sql_query, (nombre, descripcion, precio, id, path_imagen))
         cursor.execute(sql_query, (nombre, descripcion, precio, id))
+    conexion.commit()
+    conexion.close()
+
+def login(nombre, contraseña):
+    #usuario = []
+    conexion = obtener_conexion()
+    sql_query = "SELECT * FROM usuarios WHERE usuario = %s AND contraseña = %s"
+    #usuario = cursor.fetchone()
+    with conexion.cursor() as cursor:
+        cursor.execute(sql_query, (nombre, contraseña))
     conexion.commit()
     conexion.close()

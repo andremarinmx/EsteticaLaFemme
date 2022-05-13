@@ -11,7 +11,7 @@ CREATE TABLE trabajos(
     id_categoria INT NOT NULL
 );
 
-CREATE TABLE categoria(
+CREATE TABLE categorias(
     id_categoria INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL
 );
@@ -19,10 +19,16 @@ CREATE TABLE categoria(
 ALTER TABLE trabajos
     ADD CONSTRAINT fk_id_categoria
     FOREIGN KEY (id_categoria)
-    REFERENCES categoria(id_categoria);
+    REFERENCES categorias(id_categoria);
 
 CREATE TABLE usuarios(
     id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(20) NOT NULL,
     contrasena VARCHAR(20) NOT NULL
 );
+
+INSERT INTO categorias(nombre) 
+    VALUES('Cortes'),('Tintes'),('Productos');
+
+INSERT INTO usuarios(nombre, contrasena)
+    VALUES('admin', 'admin');

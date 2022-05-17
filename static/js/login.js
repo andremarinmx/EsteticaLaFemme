@@ -1,0 +1,3 @@
+function bienvenida(){
+    alert("Bienvenido");
+}

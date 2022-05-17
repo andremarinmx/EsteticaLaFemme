@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Estetica La Femme</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/index.css') }}"
+    />
   </head>
   <body>
     <section>
@@ -19,15 +23,30 @@
       <table>
         <tr>
           Cortes
-          <td></td>
+          <td>
+            <img
+              src="{{ url_for('static', filename='images/cortes.jpeg') }}"
+              alt="Cortes"
+            />
+          </td>
         </tr>
         <tr>
           Tintes
-          <td></td>
+          <td>
+            <img
+              src="{{ url_for('static', filename='images/tintes.jpeg') }}"
+              alt="Tintes"
+            />
+          </td>
         </tr>
         <tr>
           Productos
-          <td></td>
+          <td>
+            <img
+              src="{{ url_for('static', filename='images/productos.jpg') }}"
+              alt="Productos"
+            />
+          </td>
         </tr>
       </table>
     </section>

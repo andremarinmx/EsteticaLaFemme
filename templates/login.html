@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </head>
 <body>
-
 <form action="/formulario_login" method="post">
   <div>
     <h1>Iniciar sesión</h1>
@@ -23,7 +23,7 @@
       placeholder="Contraseña"
       required
     />
-    <button type="submit">Log In</button>
+    <button type="submit" onclick="bienvenida()">Log In</button>
   </div>
   <h1 >{{mensaje}}</h1>
 </body>

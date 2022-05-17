@@ -1,46 +1,54 @@
-{% extends "padre.html" %} {% block titulo %} Agregar trabajo {% endblock %} {%
-block contenido %}
-<section class="section">
-  <h3>Agregar trabajo</h3>
-  <form
-    action="{{url_for('guardar_trabajo')}}"
-    method="post"
-    enctype="multipart/form-data"
-  >
-    <label for="nombre">Nombre</label>
-    <input
-      required
-      type="text"
-      placeholder="Nombre"
-      name="nombre"
-      id="nombre"
-    />
-    <label for="descripcion">Descripción</label>
-    <input
-      required
-      type="text"
-      placeholder="Descripción"
-      name="descripcion"
-      id="descripcion"
-    />
-    <label for="precio">Precio</label>
-    <input
-      required
-      type="number"
-      placeholder="precio"
-      name="precio"
-      id="precio"
-    />
-    <label for="categoria">Categoría</label>
-    <select name="categoria" id="categoria">
-      <option value="1">Cortes</option>
-      <option value="2">Tintes</option>
-      <option value="3">Productos</option>
-    </select>
-    <label for="imagen">Imagen</label>
-    <input required type="file" name="imagen" id="imagen" />
-    <button type="submit">Guardar</button>
-    <a href="{{url_for('trabajos')}}">Volver</a>
-    {% endblock %}
-  </form>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar trabajos</title>
+  </head>
+  <body>
+    <section class="section">
+      <h3>Agregar trabajo</h3>
+      <form
+        action="{{url_for('guardar_trabajo')}}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="nombre">Nombre</label>
+        <input
+          required
+          type="text"
+          placeholder="Nombre"
+          name="nombre"
+          id="nombre"
+        />
+        <label for="descripcion">Descripción</label>
+        <input
+          required
+          type="text"
+          placeholder="Descripción"
+          name="descripcion"
+          id="descripcion"
+        />
+        <label for="precio">Precio</label>
+        <input
+          required
+          type="number"
+          placeholder="precio"
+          name="precio"
+          id="precio"
+        />
+        <label for="categoria">Categoría</label>
+        <select name="categoria" id="categoria">
+          <option value="1">Cortes</option>
+          <option value="2">Tintes</option>
+          <option value="3">Productos</option>
+        </select>
+        <label for="imagen">Imagen</label>
+        <input required type="file" name="imagen" id="imagen" />
+        <button type="submit">Guardar</button>
+        <a href="{{url_for('trabajos')}}">Volver</a>
+      </form>
+    </section>
+  </body>
+</html>

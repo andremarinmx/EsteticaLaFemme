@@ -1,57 +1,66 @@
-{% extends "padre.html" %} {% block titulo %} Editar trabajo {% endblock %} {%
-block contenido %}
-<section>
-  <h3>Editar trabajo</h3>
-  <form
-    action="{{url_for('actualizar_trabajo')}}"
-    method="post"
-    enctype="multipart/form-data"
-  >
-    <input type="hidden" name="id" id="id" value="{{trabajo[0]}}" />
-    <label for="nombre">Nombre</label>
-    <input
-      value="{{trabajo[1]}}"
-      required
-      type="text"
-      placeholder="Nombre"
-      name="nombre"
-      id="nombre"
-    />
-    <label for="descripcion">Descripción</label>
-    <input
-      value="{{trabajo[2]}}"
-      required
-      type="text"
-      placeholder="Descripción"
-      name="descripcion"
-      id="descripcion"
-    />
-    <label for="precio">Precio</label>
-    <input
-      value="{{trabajo[3]}}"
-      required
-      type="number"
-      placeholder="precio"
-      name="precio"
-      id="precio"
-    />
-    <label for="categoria">Categoría</label>
-    <select name="categoria" id="categoria">
-      <option value="1">Cortes</option>
-      <option value="2">Tintes</option>
-      <option value="3">Productos</option>
-    </select>
-    <label for="imagen">Imagen</label>
-    <input
-      value="{{trabajo[4]}}"
-      required
-      type="file"
-      placeholder="Imagen"
-      name="imagen"
-      id="imagen"
-    />
-    <button type="submit">Guardar</button>
-    <a href="{{url_for('trabajos')}}">Volver</a>
-  </form>
-</section>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Título proveniente de backend-->
+    <title></title>
+  </head>
+  <body>
+    <section>
+      <h3>Editar trabajo</h3>
+      <form
+        action="{{url_for('actualizar_trabajo')}}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <input type="hidden" name="id" id="id" value="{{trabajo[0]}}" />
+        <label for="nombre">Nombre</label>
+        <input
+          value="{{trabajo[1]}}"
+          required
+          type="text"
+          placeholder="Nombre"
+          name="nombre"
+          id="nombre"
+        />
+        <label for="descripcion">Descripción</label>
+        <input
+          value="{{trabajo[2]}}"
+          required
+          type="text"
+          placeholder="Descripción"
+          name="descripcion"
+          id="descripcion"
+        />
+        <label for="precio">Precio</label>
+        <input
+          value="{{trabajo[3]}}"
+          required
+          type="number"
+          placeholder="precio"
+          name="precio"
+          id="precio"
+        />
+        <label for="categoria">Categoría</label>
+        <select name="categoria" id="categoria">
+          <option value="1">Cortes</option>
+          <option value="2">Tintes</option>
+          <option value="3">Productos</option>
+        </select>
+        <label for="imagen">Imagen</label>
+        <input
+          value="{{trabajo[4]}}"
+          required
+          type="file"
+          placeholder="Imagen"
+          name="imagen"
+          id="imagen"
+        />
+        <button type="submit">Guardar</button>
+        <a href="{{url_for('trabajos')}}">Volver</a>
+      </form>
+    </section>
+  </body>
+</html>

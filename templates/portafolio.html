@@ -1,23 +1,33 @@
-{% extends "padre.html" %} {% block titulo %} trabajos {% endblock %} {% block
-contenido %}
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Precio</th>
-      <th>Imagen</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for trabajo in trabajos %}
-    <tr>
-      <td>{{trabajo[1]}}</td>
-      <td>{{trabajo[2]}}</td>
-      <td>{{trabajo[3]}}</td>
-      <td><img src="{{trabajo[4]}}" alt="" height="30px" width="30px" /></td>
-      {% endfor%}
-    </tr>
-  </tbody>
-</table>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio</title>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for trabajo in trabajos %}
+        <tr>
+          <td>{{trabajo[1]}}</td>
+          <td>{{trabajo[2]}}</td>
+          <td>{{trabajo[3]}}</td>
+          <td>
+            <img src="{{trabajo[4]}}" alt="" height="30px" width="30px" />
+          </td>
+          {% endfor%}
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

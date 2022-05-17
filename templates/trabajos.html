@@ -1,42 +1,50 @@
-{% extends "padre.html" %} {% block titulo %} trabajos {% endblock %} {% block
-contenido %}
-
-<section>
-  <h3>Trabajos</h3>
-  <a href="{{url_for('formulario_agregar_trabajo')}}">Agregar</a>
-  <table>
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Descripción</th>
-        <th>Precio</th>
-        <th>Categoria</th>
-        <th>Imagen</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for trabajo in trabajos %}
-      <tr>
-        <td>{{trabajo[1]}}</td>
-        <td>{{trabajo[2]}}</td>
-        <td>{{trabajo[3]}}</td>
-        <td>{{trabajo[5]}}</td>
-        <td><img src="{{trabajo[4]}}" alt="" height="30px" width="30px" /></td>
-        <td>
-          {# Pasar el id (lo que hay en trabajo[0] #}
-          <a href="{{url_for('editar_trabajo', id=trabajo[0])}}">Editar</a>
-        </td>
-        <td>
-          <form action="{{url_for('eliminar_trabajo')}}" method="POST">
-            <input type="hidden" name="id" value="{{trabajo[0]}}" />
-            <button>Eliminar</button>
-          </form>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</section>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section>
+      <h3>Trabajos</h3>
+      <a href="{{url_for('formulario_agregar_trabajo')}}">Agregar</a>
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Categoria</th>
+            <th>Imagen</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for trabajo in trabajos %}
+          <tr>
+            <td>{{trabajo[1]}}</td>
+            <td>{{trabajo[2]}}</td>
+            <td>{{trabajo[3]}}</td>
+            <td>{{trabajo[5]}}</td>
+            <td>
+              <img src="{{trabajo[4]}}" alt="" height="30px" width="30px" />
+            </td>
+            <td>
+              <a href="{{url_for('editar_trabajo', id=trabajo[0])}}">Editar</a>
+            </td>
+            <td>
+              <form action="{{url_for('eliminar_trabajo')}}" method="POST">
+                <input type="hidden" name="id" value="{{trabajo[0]}}" />
+                <button>Eliminar</button>
+              </form>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </body>
+</html>

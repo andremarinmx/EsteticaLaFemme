@@ -22,17 +22,21 @@ def trabajos():
     return render_template("trabajos.html", trabajos=trabajos)
 
 @app.route('/login')
-def login():
+def hello_world():
     return render_template("login.html")
+database={'admin':'admin'}
 
-@app.route("/form_login", methods=["POST, GET"])
-def form_login():
-    nombre_usuario = request.form["nombre"]
-    contraseña_usuario = request.form["contraseña"] 
-    print(nombre_usuario)
-    print(contraseña_usuario)
-    controlador_trabajos.login(nombre_usuario, contraseña_usuario)
-    return redirect("/agregar_trabajo")
+@app.route('/formulario_login',methods=["POST"])
+def login():
+    nombre_usuario = request.form['usuario']
+    contrasena_usuario = request.form['contrasena']
+    if nombre_usuario not in database:
+        return render_template('login.html',mensaje='Usuario inválido')
+    else:
+        if database[nombre_usuario]!=contrasena_usuario:
+            return render_template('login.html',mensaje='Contraseña inválida')
+        else:
+            return (redirect("/trabajos"))
 
 @app.route("/agregar_trabajo")
 def formulario_agregar_trabajo():   

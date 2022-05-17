@@ -46,7 +46,7 @@ def actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria):
         cursor.execute(sql_query, (nombre, descripcion, precio, id_categoria, id_producto))
     conexion.commit()
     conexion.close()
-
+"""
 def login(nombre, contraseña):
     #usuario = []
     conexion = obtener_conexion()
@@ -56,3 +56,5 @@ def login(nombre, contraseña):
         cursor.execute(sql_query, (nombre, contraseña))
     conexion.commit()
     conexion.close()
+"""
+

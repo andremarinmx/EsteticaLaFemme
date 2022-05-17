@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
     <title>Login</title>
-  </head>
-  <body>
-    <form action="">
-      <div>
-        <h1>Iniciar sesión</h1>
-        <input type="text" name="usuario" placeholder="Usuario" required />
-        <input
-          type="password"
-          name="contraseña"
-          placeholder="Contraseña"
-          required
-        />
-        <button type="submit">Log In</button>
-      </div>
-    </form>
-    <form action="">
-      <div>
-        <h2>¿Olvidaste tu contraseña?</h2>
-        <a href="#">¿Olvidaste tu contraseña?</a>
-      </div>
-    </form>
-  </body>
+</head>
+<body>
+
+<form action="/formulario_login" method="post">
+  <div>
+    <h1>Iniciar sesión</h1>
+    <input
+      type="text"
+      name="usuario"
+      id="usuario"
+      placeholder="Usuario"
+      required
+    />
+    <input
+      type="password"
+      name="contrasena"
+      id="contrasena"
+      placeholder="Contraseña"
+      required
+    />
+    <button type="submit">Log In</button>
+  </div>
+  <h1 >{{mensaje}}</h1>
+</body>
 </html>

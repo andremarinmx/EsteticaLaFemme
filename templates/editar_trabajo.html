@@ -7,7 +7,7 @@ block contenido %}
     method="post"
     enctype="multipart/form-data"
   >
-    <input type="hidden" name="id" value="{{trabajo[0]}}" />
+    <input type="hidden" name="id" id="id" value="{{trabajo[0]}}" />
     <label for="nombre">Nombre</label>
     <input
       value="{{trabajo[1]}}"
@@ -35,6 +35,12 @@ block contenido %}
       name="precio"
       id="precio"
     />
+    <label for="categoria">Categoría</label>
+    <select name="categoria" id="categoria">
+      <option value="1">Cortes</option>
+      <option value="2">Tintes</option>
+      <option value="3">Productos</option>
+    </select>
     <label for="imagen">Imagen</label>
     <input
       value="{{trabajo[4]}}"

@@ -20,7 +20,7 @@ def obtener_trabajos():
 
 def eliminar_trabajo(id):
     conexion = obtener_conexion()
-    sql_query = "DELETE FROM trabajos WHERE id = %s"
+    sql_query = "DELETE FROM trabajos WHERE id_producto = %s"
     with conexion.cursor() as cursor:
         cursor.execute(sql_query, (id,))
     conexion.commit()
@@ -29,21 +29,21 @@ def eliminar_trabajo(id):
 def obtener_trabajo_por_id(id):
     conexion = obtener_conexion()
     trabajo = None
-    sql_query = "SELECT id, nombre, descripcion, precio, categoria, imagen FROM trabajos WHERE id = %s"
+    sql_query = "SELECT id_producto, nombre, descripcion, precio, id_categoria, imagen FROM trabajos WHERE id_producto = %s"
     with conexion.cursor() as cursor:
         cursor.execute(sql_query, (id,))
         trabajo = cursor.fetchone()
     conexion.close()
     return trabajo
 
-def actualizar_trabajo(nombre, descripcion, precio, id):
-#def actualizar_trabajo(nombre, descripcion, precio, id, path_imagen):
+def actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria):
+#def actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria, path_imagen):
     conexion = obtener_conexion()
-    #sql_query = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, imagen = %s WHERE id = %s"
-    sql_query = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s WHERE id = %s"
+    #sql_query = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, id_categoria = %s, imagen = %s WHERE id_producto = %s"
+    sql_query = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, id_categoria = %s WHERE id_producto = %s"
     with conexion.cursor() as cursor:
-        #cursor.execute(sql_query, (nombre, descripcion, precio, id, path_imagen))
-        cursor.execute(sql_query, (nombre, descripcion, precio, id))
+        #cursor.execute(sql_query, (nombre, descripcion, precio, id_categoria, id_producto))
+        cursor.execute(sql_query, (nombre, descripcion, precio, id_categoria, id_producto))
     conexion.commit()
     conexion.close()
 

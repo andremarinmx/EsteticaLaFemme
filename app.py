@@ -62,15 +62,16 @@ def editar_trabajo(id):
 
 @app.route("/actualizar_trabajo", methods=["POST"])
 def actualizar_trabajo():
-    id = request.form["id"]
+    id_producto = request.form["id"]
     nombre = request.form["nombre"]
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]
     imagen = request.files["imagen"]
+    id_categoria = request.form["categoria"]
     imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
     #path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
-    #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id, path_imagen)
-    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id)
+    #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria, path_imagen)
+    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria)
     return redirect("/trabajos")
 
 if __name__ == "__main__":

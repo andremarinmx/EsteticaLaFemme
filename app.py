@@ -22,12 +22,12 @@ def trabajos():
     return render_template("trabajos.html", trabajos=trabajos)
 
 @app.route('/login')
-def hello_world():
+def login():
     return render_template("login.html")
 database={'admin':'admin'}
 
 @app.route('/formulario_login',methods=["POST"])
-def login():
+def formulario_login():
     nombre_usuario = request.form['usuario']
     contrasena_usuario = request.form['contrasena']
     if nombre_usuario not in database:

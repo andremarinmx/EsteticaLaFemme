@@ -36,14 +36,15 @@ def obtener_trabajo_por_id(id):
     conexion.close()
     return trabajo
 
-def actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria):
-#def actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria, path_imagen):
+def actualizar_trabajo(nombre, descripcion, precio, id_categoria, path_imagen, id_producto):
     conexion = obtener_conexion()
-    #sql_query = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, id_categoria = %s, imagen = %s WHERE id_producto = %s"
-    sql_query = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, id_categoria = %s WHERE id_producto = %s"
+    sql_query1 = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, id_categoria = %s WHERE id_producto = %s"
+    sql_query2 = "UPDATE trabajos SET nombre = %s, descripcion = %s, precio = %s, id_categoria = %s, imagen = %s WHERE id_producto = %s"
     with conexion.cursor() as cursor:
-        #cursor.execute(sql_query, (nombre, descripcion, precio, id_categoria, id_producto))
-        cursor.execute(sql_query, (nombre, descripcion, precio, id_categoria, id_producto))
+        if path_imagen == None:
+            cursor.execute(sql_query1, (nombre, descripcion, precio, id_categoria, id_producto))
+        else:
+            cursor.execute(sql_query2, (nombre, descripcion, precio, id_categoria, path_imagen, id_producto))
     conexion.commit()
     conexion.close()
 """

@@ -71,11 +71,13 @@ def actualizar_trabajo():
     descripcion = request.form["descripcion"]
     precio = request.form["precio"]
     imagen = request.files["imagen"]
+    if imagen is not None:
+        path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
+        imagen.save(path_imagen)
+    else:
+        path_imagen = None
     id_categoria = request.form["categoria"]
-    imagen.save(os.path.join(uploads_dir, secure_filename(imagen.filename)))
-    #path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
-    #controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria, path_imagen)
-    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id_producto, id_categoria)
+    controlador_trabajos.actualizar_trabajo(nombre, descripcion, precio, id_categoria, path_imagen, id_producto)
     return redirect("/trabajos")
 
 if __name__ == "__main__":

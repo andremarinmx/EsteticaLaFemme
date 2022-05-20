@@ -19,7 +19,7 @@ def portafolio():
 
 @app.route("/trabajos")
 def trabajos():
-    if "nombre_usuario" in session and "contrasena_usuario":
+    if "nombre_usuario" in session:
         trabajos = controlador_trabajos.obtener_trabajos()
         return render_template("trabajos.html", trabajos=trabajos)
     else:
@@ -46,14 +46,14 @@ def formulario_login():
     
 @app.route("/agregar_trabajo")
 def formulario_agregar_trabajo():  
-    if "nombre_usuario" in session and "contrasena_usuario" in session: 
+    if "nombre_usuario" in session: 
         return render_template("agregar_trabajo.html")
     else:
         return redirect("/login")
 
 @app.route("/guardar_trabajo", methods=["POST"])
 def guardar_trabajo():
-    if "nombre_usuario" in session and "contrasena_usuario" in session:
+    if "nombre_usuario" in session:
         nombre = request.form["nombre"]
         descripcion = request.form["descripcion"]
         precio = request.form["precio"]
@@ -68,7 +68,7 @@ def guardar_trabajo():
 
 @app.route("/eliminar_trabajo", methods=["POST"])
 def eliminar_trabajo():
-    if "nombre_usuario" in session and "contrasena_usuario" in session:
+    if "nombre_usuario" in session:
         controlador_trabajos.eliminar_trabajo(request.form["id"])
         return redirect("/trabajos")
     else:
@@ -76,7 +76,7 @@ def eliminar_trabajo():
 
 @app.route("/formulario_editar_trabajo/<int:id>")
 def editar_trabajo(id):
-    if "nombre_usuario" in session and "contrasena_usuario" in session:
+    if "nombre_usuario" in session:
         trabajo = controlador_trabajos.obtener_trabajo_por_id(id)
         return render_template("editar_trabajo.html", trabajo=trabajo)
     else:
@@ -84,7 +84,7 @@ def editar_trabajo(id):
 
 @app.route("/actualizar_trabajo", methods=["POST"])
 def actualizar_trabajo():
-    if "nombre_usuario" in session and "contrasena_usuario" in session:
+    if "nombre_usuario" in session:
         id_producto = request.form["id"]
         nombre = request.form["nombre"]
         descripcion = request.form["descripcion"]

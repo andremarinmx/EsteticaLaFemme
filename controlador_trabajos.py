@@ -29,7 +29,7 @@ def eliminar_trabajo(id):
 def obtener_trabajo_por_id(id):
     conexion = obtener_conexion()
     trabajo = None
-    sql_query = "SELECT id_producto, nombre, descripcion, precio, id_categoria, imagen FROM trabajos WHERE id_producto = %s"
+    sql_query = "SELECT id_producto, nombre, descripcion, precio, imagen, id_categoria FROM trabajos WHERE id_producto = %s"
     with conexion.cursor() as cursor:
         cursor.execute(sql_query, (id,))
         trabajo = cursor.fetchone()

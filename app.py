@@ -90,7 +90,7 @@ def actualizar_trabajo():
         descripcion = request.form["descripcion"]
         precio = request.form["precio"]
         imagen = request.files["imagen"]
-        if imagen is not None:
+        if imagen.filename != "":
             path_imagen = os.path.join(uploads_dir, secure_filename(imagen.filename))
             imagen.save(path_imagen)
         else:

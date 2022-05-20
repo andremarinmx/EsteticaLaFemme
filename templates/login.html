@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/login.css') }}"
+    />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script> 
 </head>
+
 <body>
+  <div class="Contenedor">
+    <img
+    src="{{ url_for('static', filename='images/login.png') }}"
+    alt="Cortes"
+     />
+ <div class="derecha">
+     <a href="{{url_for('index')}}">
+       <img
+       src="{{ url_for('static', filename='images/La femme logos.png') }}"
+       alt="Cortes"/>
+     </a>
 <form action="/formulario_login" method="post">
   <div>
     <h1>Iniciar sesión</h1>
-    <input
+      <input
       type="text"
       name="usuario"
       id="usuario"
@@ -21,10 +38,10 @@
       name="contrasena"
       id="contrasena"
       placeholder="Contraseña"
-      required
-    />
+     required
+     />
     <button type="submit" onclick="bienvenida()">Log In</button>
-  </div>
+   </div>
   <h1 >{{mensaje}}</h1>
 </body>
 </html>

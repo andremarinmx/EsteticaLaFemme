@@ -1,0 +1,83 @@
+body{
+    background-color: #faf8f8;
+    align-items: center;
+    justify-content: center;
+}
+
+.Contenedor{
+    margin:auto;
+    margin-top: 5%;
+    background-color: #fff;
+    display: -webkit-flex;
+    width: 80%;
+    height: 500px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    border-radius: 15px;
+
+}
+.Contenedor img{
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+.Contenedor .derecha{
+    width: 50%;
+    margin:auto;
+    text-align: center;
+  /*  background-color: aqua;*/
+
+}
+
+
+.Contenedor .derecha img{
+    width: 26%;
+    height: auto;
+    
+}
+
+.Contenedor .derecha input{
+    width: 55%;
+    height: 30px;
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 3%;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.Contenedor .derecha button{
+    width: 60%;
+    height:35px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    margin-top: 4%;
+    transition: all 1s ease;
+}
+
+.Contenedor .derecha button:hover{
+    background: #eecbd2;
+    color: #000 !important;
+}
+
+.Contenedor .derecha h1{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.Contenedor .derecha h3{
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.Contenedor .derecha a{
+    text-decoration: none;
+    color:rgba(92, 92, 92, 0.809);
+    transition: all 1s ease;
+}
+
+.Contenedor .derecha a:hover{
+    text-decoration: none;
+    color: #000;
+}
+

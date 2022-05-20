@@ -81,3 +81,10 @@ body{
     color: #000;
 }
 
+.contraseñaInv h3{
+    font-family: 'Cormorant Garamond', serif;
+    font-size: medium;
+    font-weight: lighter;
+    color: rgb(188, 70, 70);
+}
+

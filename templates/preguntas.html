@@ -1,152 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>Preguntas</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Josefin+Sans&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Josefin+Sans&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/preguntas.css') }}"
-  />
-</head>
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/preguntas.css') }}"
+    />
+  </head>
 
-<body>
-
-
+  <body>
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
-                <img
-                 src="{{ url_for('static', filename='images/La femme logos.png') }}"
-                 alt="Logo"/>
-                <div class="navbar-nav m-auto py-0"> 
-                    <a href="{{url_for('index')}}"class="nav-item nav-link" >Inicio</a>
-                    <a href="#" class="nav-item nav-link">Servicios</a>
-                    <a href="{{url_for('portafolio')}}"class="nav-item nav-link">Portafolio</a>
-                    <a href="{{url_for('preguntas')}}"class="nav-item nav-link">Q&A</a>
-                    <a href="{{url_for('login')}}"class="nav-item nav-link">Login</a>
-                </div>
-            </div>
-        </nav>
+      <nav
+        class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5"
+      >
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-between px-lg-3"
+          id="navbarCollapse"
+        >
+          <img
+            src="{{ url_for('static', filename='images/La femme logos.png') }}"
+            alt="Logo"
+          />
+          <div class="navbar-nav m-auto py-0">
+            <a href="{{url_for('index')}}" class="nav-item nav-link">Inicio</a>
+            <a href="#" class="nav-item nav-link">Servicios</a>
+            <a href="{{url_for('portafolio')}}" class="nav-item nav-link"
+              >Portafolio</a
+            >
+            <a href="{{url_for('preguntas')}}" class="nav-item nav-link">Q&A</a>
+            <a href="{{url_for('login')}}" class="nav-item nav-link">Login</a>
+          </div>
+        </div>
+      </nav>
     </div>
 
-    
     <main>
-        <img class="imgCentral"
-        src="{{ url_for('static', filename='images/Logo sin fondo.png') }}"
-        alt="Logo" />
-        <h1 class="faq-heading">Preguntas Frecuentes</h1>
-        <section class="faq-container">
-            <div class="faq-one">
-                <!-- faq question -->
-                <h1 class="faq-page">¿Quiénes somos?</h1>
-                <!-- faq answer -->
-                <div class="faq-body">
-                    <p>Somos un salón de belleza ubicado en Ciudad Juárez, Chihuahua. <br>
-                    Este negocio es una pequeña empresa familiar, sin embargo, estamos comprometidos con brindar
-                    un servicio de calidad. Actualmente trabajamos bajo citas debido al compromiso que tenemos con 
-                    cada una de nuestras y nuestros clientes.
-                </p>
-                </div>
-            </div>
-            <hr class="hr-line">
-            <div class="faq-two">
-                <!-- faq question -->
-                <h1 class="faq-page">¿Qué servicios ofrecemos?</h1>
-                <!-- faq answer -->
-                <div class="faq-body">
-                    <p>En La Femme ofrecemos servicios de cortes de cabello y tintes principalmente para damas.
-                        Contamos con una diversidad de marcas de tintes para tu comodidad. También ofrecemos diferentes
-                        técnicas de coloración, como balayage, mechas, ombré y californianas. Puedes preguntar por el servicio 
-                        que necesites.  
-                    </p>
-                </div>
-            </div>
-            <hr class="hr-line">
-            <div class="faq-three">
-                <!-- faq question -->
-                <h1 class="faq-page">¿Dónde nos ubicamos?</h1>
-                <!-- faq answer -->
-                <div class="faq-body">
-                    <p>Estamos ubicados en Ciudad Juárez, Chihuahua.
-                        Fraccionamiento Morelos II, Calle Día del Arbol #409. Encuentranos cerca
-                         del Blvd. Zaragoza y calle Durango.  
-                    </p>
-                </div>
-            </div>
-            <hr class="hr-line">
-            <div class="faq-two">
-                <!-- faq question -->
-                <h1 class="faq-page">¿Cómo contactarnos?</h1>
-                <!-- faq answer -->
-                <div class="faq-body">
-                    <p>jeje respuesta</p>
-                </div>
-            </div>
-            <hr class="hr-line">
-            <div class="faq-two">
-                <!-- faq question -->
-                <h1 class="faq-page">¿Cuánto cobramos por nuestros servicios?</h1>
-                <!-- faq answer -->
-                <div class="faq-body">
-                    <p>Para poder ofrecerte una cotización sobre un servicio en particular
-                        es necesario una evaluación previa para conocer el estado y longitud de tu cabello. 
-                        Puedes cotizar sin compromiso alguno enviando mensaje o llamando a nuestro número. 
-                    </p>
-                </div>
-            </div>
-        </section>
+      <img
+        class="imgCentral"
+        src="{{ url_for('static', filename='images/La femme logos.png') }}"
+        alt="Logo"
+      />
+      <h1 class="faq-heading">Preguntas Frecuentes</h1>
+      <section class="faq-container">
+        <div class="faq-one">
+          <!-- faq question -->
+          <h1 class="faq-page">¿Quiénes somos?</h1>
+          <!-- faq answer -->
+          <div class="faq-body">
+            <p>
+              Somos un salón de belleza ubicado en Ciudad Juárez, Chihuahua.
+              <br />
+              Este negocio es una pequeña empresa familiar, sin embargo, estamos
+              comprometidos con brindar un servicio de calidad. Actualmente
+              trabajamos bajo citas debido al compromiso que tenemos con cada
+              una de nuestras y nuestros clientes.
+            </p>
+          </div>
+        </div>
+        <hr class="hr-line" />
+        <div class="faq-two">
+          <!-- faq question -->
+          <h1 class="faq-page">¿Qué servicios ofrecemos?</h1>
+          <!-- faq answer -->
+          <div class="faq-body">
+            <p>
+              En La Femme ofrecemos servicios de cortes de cabello y tintes
+              principalmente para damas. Contamos con una diversidad de marcas
+              de tintes para tu comodidad. También ofrecemos diferentes técnicas
+              de coloración, como balayage, mechas, ombré y californianas.
+              Puedes preguntar por el servicio que necesites.
+            </p>
+          </div>
+        </div>
+        <hr class="hr-line" />
+        <div class="faq-three">
+          <!-- faq question -->
+          <h1 class="faq-page">¿Dónde nos ubicamos?</h1>
+          <!-- faq answer -->
+          <div class="faq-body">
+            <p>
+              Estamos ubicados en Ciudad Juárez, Chihuahua. Fraccionamiento
+              Morelos II, Calle Día del Arbol #409. Encuentranos cerca del Blvd.
+              Zaragoza y calle Durango.
+            </p>
+          </div>
+        </div>
+        <hr class="hr-line" />
+        <div class="faq-two">
+          <!-- faq question -->
+          <h1 class="faq-page">¿Cómo contactarnos?</h1>
+          <!-- faq answer -->
+          <div class="faq-body">
+            <p>jeje respuesta</p>
+          </div>
+        </div>
+        <hr class="hr-line" />
+        <div class="faq-two">
+          <!-- faq question -->
+          <h1 class="faq-page">¿Cuánto cobramos por nuestros servicios?</h1>
+          <!-- faq answer -->
+          <div class="faq-body">
+            <p>
+              Para poder ofrecerte una cotización sobre un servicio en
+              particular es necesario una evaluación previa para conocer el
+              estado y longitud de tu cabello. Puedes cotizar sin compromiso
+              alguno enviando mensaje o llamando a nuestro número.
+            </p>
+          </div>
+        </div>
+      </section>
     </main>
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 
     <section class="footer">
-  
-        <div class="logofooter">
-            <img
-            src="{{ url_for('static', filename='images/La femme logos.png') }}"
-            alt="Cortes"/>
-        
-          <p>NUESTRO HORARIO<br>
-          Lunes a viernes de 10:00 am a 6:00 pm <br>
-          Sabados y domingos de 10:00 a 4:00 pm</p>
-        
-          <iframe class="mapa"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.8917447903664!2d-106.36885588535375!3d31.636814281331223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e7673f9d2d1031%3A0x75147ec978d2812!2sEstetica%20La%20femme!5e0!3m2!1ses-419!2sus!4v1652123477322!5m2!1ses-419!2sus"
-            width="330px"
-            height="185px"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-      </section>
+      <div class="logofooter">
+        <img
+          src="{{ url_for('static', filename='images/La femme logos.png') }}"
+          alt="Cortes"
+        />
 
-</body>
+        <p>
+          NUESTRO HORARIO<br />
+          Lunes a viernes de 10:00 am a 6:00 pm <br />
+          Sabados y domingos de 10:00 a 4:00 pm
+        </p>
+
+        <iframe
+          class="mapa"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.8917447903664!2d-106.36885588535375!3d31.636814281331223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e7673f9d2d1031%3A0x75147ec978d2812!2sEstetica%20La%20femme!5e0!3m2!1ses-419!2sus!4v1652123477322!5m2!1ses-419!2sus"
+          width="330px"
+          height="185px"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </section>
+  </body>
+</html>

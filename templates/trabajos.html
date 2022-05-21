@@ -4,13 +4,26 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/trabajos.css') }}"
+    />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <title>Trabajos</title>
   </head>
   <body>
-    <section>
-      <h3>Trabajos</h3>
-      <a href="{{url_for('formulario_agregar_trabajo')}}">Agregar</a>
+   <nav class="navegador">
+      <img
+      src="{{ url_for('static', filename='images/La femme logos.png') }}"
+      alt="Cortes"/>
+      <a href="{{url_for('login')}}">Sign out</a>
+    </nav>
+    <nav class="titulo">
+      <h1>Panel de Imagenes</h1>
+    </nav>
+    <section class="Contenedortrabajos">
       <table>
+        <!--Encabezado de la tabla-->
         <thead>
           <tr>
             <th>Nombre</th>
@@ -22,23 +35,24 @@
             <th>Eliminar</th>
           </tr>
         </thead>
+       <!--Cuerpo de la tabla-->
         <tbody>
           {% for trabajo in trabajos %}
           <tr>
-            <td>{{trabajo[1]}}</td>
-            <td>{{trabajo[2]}}</td>
-            <td>{{trabajo[3]}}</td>
-            <td>{{trabajo[5]}}</td>
+            <td class="C_titulo">{{trabajo[1]}}</td>
+            <td class="C_titulo">{{trabajo[2]}}</td>
+            <td class="C_titulo">{{trabajo[3]}}</td>
+            <td class="C_titulo">{{trabajo[5]}}</td>
             <td>
               <img src="{{trabajo[4]}}" alt="" height="30px" width="30px" />
             </td>
             <td>
-              <a href="{{url_for('editar_trabajo', id=trabajo[0])}}">Editar</a>
+              <a href="{{url_for('editar_trabajo', id=trabajo[0])}}"><button class="Btn_editar">editar</button></a>
             </td>
             <td>
               <form action="{{url_for('eliminar_trabajo')}}" method="POST">
                 <input type="hidden" name="id" value="{{trabajo[0]}}" />
-                <button>Eliminar</button>
+                <button class="Btn_eliminar">eliminar</button>
               </form>
             </td>
           </tr>
@@ -46,5 +60,8 @@
         </tbody>
       </table>
     </section>
+    <div class="btn_agregar">
+    <a href="{{url_for('formulario_agregar_trabajo')}}"><button>Añadir trabajo</button></a>
+    </div>
   </body>
 </html>

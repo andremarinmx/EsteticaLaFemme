@@ -17,6 +17,10 @@ def portafolio():
     trabajos = controlador_trabajos.obtener_trabajos()
     return render_template("portafolio.html", trabajos=trabajos)
 
+@app.route("/preguntas")
+def preguntas():    
+    return render_template("preguntas.html")
+
 @app.route("/trabajos")
 def trabajos():
     if "nombre_usuario" in session:

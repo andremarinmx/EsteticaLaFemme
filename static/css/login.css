@@ -64,6 +64,7 @@ body{
 
 .Contenedor .derecha h1{
     font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
 }
 
 .Contenedor .derecha h3{

@@ -4,51 +4,93 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agregar trabajos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/agregar_trabajo.css') }}"
+    />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <title>Agregar trabajo</title>
   </head>
   <body>
+   <nav class="navegador">
+      <img
+      src="{{ url_for('static', filename='images/La femme logos.png') }}"
+      alt="Cortes"/>
+      <a href="{{url_for('login')}}">Sign out</a>
+   </nav>
+    <div class="titulo">
+      <h1>Agregar trabajo</h1>
+    </div>
+
+    <!--AGREGAR IMAGEN-->
     <section class="section">
-      <h3>Agregar trabajo</h3>
       <form
         action="{{url_for('guardar_trabajo')}}"
         method="post"
         enctype="multipart/form-data"
       >
+      <div class="opc_guardar">
         <label for="nombre">Nombre</label>
-        <input
+        <input class="cont_nombre" 
           required
           type="text"
           placeholder="Nombre"
           name="nombre"
           id="nombre"
         />
+      </div>
+      <div class="opc_guardar">
         <label for="descripcion">Descripción</label>
-        <input
+        <input class="cont_desc"
           required
           type="text"
           placeholder="Descripción"
           name="descripcion"
           id="descripcion"
         />
+      </div>
+      <div class="opc_guardar">
         <label for="precio">Precio</label>
-        <input
+        <input class="cont_precio"
           required
           type="number"
-          placeholder="precio"
+          placeholder="Precio"
           name="precio"
           id="precio"
         />
-        <label for="categoria">Categoría</label>
-        <select name="categoria" id="categoria">
-          <option value="1">Cortes</option>
-          <option value="2">Tintes</option>
-          <option value="3">Productos</option>
-        </select>
-        <label for="imagen">Imagen</label>
-        <input required type="file" name="imagen" id="imagen" />
-        <button type="submit">Guardar</button>
-        <a href="{{url_for('trabajos')}}">Volver</a>
+      </div>
+
+        <!--CATEGORIA-->
+        <div class="opc_guardar_cat">
+          <label for="categoria">Categoría</label>
+          <select name="categoria" id="categoria">
+            <option value="1">Cortes</option>
+            <option value="2">Tintes</option>
+            <option value="3">Productos</option>
+          </select>
+        </div>
+
+        <div class="opc_guardar_img">
+          <label for="imagen">Imagen</label>
+          <input class="agr_imagen"
+          required type="file" 
+          name="imagen" 
+          id="imagen" 
+          />
+      </div>
+      <div class="div_btn_guardar">
+        <button type="submit" class="btn_guardar">Guardar</button>
+      </div>
       </form>
     </section>
+    <div class="div_btn_volver">
+      <a href="{{url_for('trabajos')}}"><button>Volver</button></a>
+    </div>
   </body>
 </html>

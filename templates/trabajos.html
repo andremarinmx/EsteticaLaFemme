@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+   
     <link
     rel="stylesheet"
     href="{{ url_for('static', filename='css/trabajos.css') }}"
@@ -19,7 +25,7 @@
       <a href="{{url_for('login')}}">Sign out</a>
     </nav>
     <nav class="titulo">
-      <h1>Panel de Imagenes</h1>
+      <h1>Panel de Imágenes</h1>
     </nav>
     <section class="Contenedortrabajos">
       <table>
@@ -29,7 +35,7 @@
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Precio</th>
-            <th>Categoria</th>
+            <th>Categoría</th>
             <th>Imagen</th>
             <th>Editar</th>
             <th>Eliminar</th>
@@ -44,7 +50,9 @@
             <td class="C_titulo">{{trabajo[3]}}</td>
             <td class="C_titulo">{{trabajo[5]}}</td>
             <td>
-              <img src="{{trabajo[4]}}" alt="" height="30px" width="30px" />
+            <a target="_blank" href="{{trabajo[4]}}">
+             <img src="{{trabajo[4]}}" alt="" height="30px" width="30px" /> 
+            </a>
             </td>
             <td>
               <a href="{{url_for('editar_trabajo', id=trabajo[0])}}"><button class="Btn_editar">editar</button></a>

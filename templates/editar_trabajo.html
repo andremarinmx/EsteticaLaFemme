@@ -4,20 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/editar_trabajo.css') }}"
+    />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <!--Título proveniente de backend-->
     <title></title>
   </head>
   <body>
-    <section>
-      <h3>Editar trabajo</h3>
+    <nav class="navegador">
+      <img
+      src="{{ url_for('static', filename='images/La femme logos.png') }}"
+      alt="Cortes"/>
+      <a href="{{url_for('login')}}">Sign out</a>
+   </nav>
+    <div class="titulo">
+      <h1>Editar trabajo</h1>
+    </div>
+    <section class="section">
       <form
         action="{{url_for('actualizar_trabajo')}}"
         method="post"
         enctype="multipart/form-data"
       >
         <input type="hidden" name="id" id="id" value="{{trabajo[0]}}" />
+        <div class="opc_guardar">
         <label for="nombre">Nombre</label>
-        <input
+        <input class="cont_nombre"
           value="{{trabajo[1]}}"
           required
           type="text"
@@ -25,8 +44,10 @@
           name="nombre"
           id="nombre"
         />
+      </div>
+        <div class="opc_guardar">
         <label for="descripcion">Descripción</label>
-        <input
+        <input class="cont_desc"
           value="{{trabajo[2]}}"
           required
           type="text"
@@ -34,8 +55,10 @@
           name="descripcion"
           id="descripcion"
         />
+      </div>
+        <div class="opc_guardar">
         <label for="precio">Precio</label>
-        <input
+        <input class="cont_precio"
           value="{{trabajo[3]}}"
           required
           type="number"
@@ -43,17 +66,26 @@
           name="precio"
           id="precio"
         />
+      </div>
+      <div class="opc_guardar_cat">
         <label for="categoria">Categoría</label>
         <select name="categoria" id="categoria" value="{{trabajo[5]}}">
           <option value="1">Cortes</option>
           <option value="2">Tintes</option>
           <option value="3">Productos</option>
+        </div>
         </select>
+        <div class="opc_guardar_img">
         <label for="imagen">Imagen</label>
         <input type="file" placeholder="Imagen" name="imagen" id="imagen" />
-        <button type="submit">Guardar</button>
-        <a href="{{url_for('trabajos')}}">Volver</a>
+      </div>
+      <div class="div_btn_guardar">
+        <button type="submit" class="btn_guardar">Guardar</button>
+      </div>
       </form>
     </section>
+    <div class="div_btn_volver">
+      <a href="{{url_for('trabajos')}}"><button>Volver</button></a>
+    </div>
   </body>
 </html>

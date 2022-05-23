@@ -39,6 +39,10 @@
     />
 
     <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/animate/animate.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}"/>
+    
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/preguntas.css') }}"
@@ -137,7 +141,8 @@
           <h1 class="faq-page">¿Cómo contactarnos?</h1>
           <!-- faq answer -->
           <div class="faq-body">
-            <p>jeje respuesta</p>
+            <p>Nos puedes contactar nuestro número (52)656-144-27-41<br>
+            En un horario de 10:00 am a 6:00 pm</p>
           </div>
         </div>
         <hr class="hr-line" />
@@ -156,6 +161,21 @@
         </div>
       </section>
     </main>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/tempusdominus/js/moment.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+
+
+    <!--Archivo de JavaScript-->
     <script src="{{ url_for('static', filename='js/preguntas.js') }}"></script>
 
     <section class="footer">

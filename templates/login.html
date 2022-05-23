@@ -8,42 +8,53 @@
     href="{{ url_for('static', filename='css/login.css') }}"
     />
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
    <!-- <script src="{{ url_for('static', filename='js/login.js') }}"></script> -->
 </head>
 
 <body>
-  <div class="Contenedor">
-    <img
+  <div class="login-container">
+    <img class="image-container" 
     src="{{ url_for('static', filename='images/login.png') }}"
     alt="Cortes"
      />
- <div class="derecha">
-     <a href="{{url_for('index')}}">
-       <img
-       src="{{ url_for('static', filename='images/La femme logos.png') }}"
-       alt="Cortes"/>
-     </a>
-<form action="/formulario_login" method="post">
-  <div>
-    <h1>Iniciar sesión</h1>
-      <input
-      type="text"
-      name="usuario"
-      id="usuario"
-      placeholder="Usuario"
-      required
-    />
-    <input
-      type="password"
-      name="contrasena"
-      id="contrasena"
-      placeholder="Contraseña"
-     required
-     />
-    <button type="submit" onclick="bienvenida()">Log In</button>
-   </div>
-   <div class="contraseñaInv">
-    <h3 >{{mensaje}}</h3>
+    <div class="login-info-container">
+      
+      <a href="{{url_for('index')}}">
+        <img
+        src="{{ url_for('static', filename='images/La femme logos.png') }}"
+        alt="Cortes"/>
+      </a>
+
+      <h1 class="title">Iniciar sesión</h1>
+      
+      <form action="/formulario_login" method="post" class="inputs-container">
+            <input
+            class="input"
+            type="text"
+            name="usuario"
+            id="usuario"
+            placeholder="Usuario"
+            required
+          />   
+          <input
+          class="input"
+          type="password"
+          name="contrasena"
+          id="contrasena"
+          placeholder="Contraseña"
+         required
+         />
+        <button class="btn" type="submit" onclick="bienvenida()">Login</button>
+       <div class="contraseñaInv">
+        <h3 >{{mensaje}}</h3>
+    </div>
   </div>
+</div>
 </body>
 </html>

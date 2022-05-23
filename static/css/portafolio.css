@@ -871,6 +871,7 @@ header .categorias a.activo {
 }
 .pie-pagina .grupo-1 .box figure{
   width: 100%;
+  margin-left: 0;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -879,13 +880,16 @@ header .categorias a.activo {
 .pie-pagina .grupo-1 .box figure img{
   width: 150px;
 }
-.pie-pagina .grupo-1 .box h2{
-  color: #fff;
+.pie-pagina .grupo-1 .box h15{
+  color: rgb(0, 0, 0);
   margin-bottom: 25px;
   font-size: 20px;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
 }
 .pie-pagina .grupo-1 .box p{
-  text-align: center;
+  text-align: inherit;
   font-family: 'Cormorant Garamond', serif;
   color: #211E1C;
   margin-bottom: 10px;
@@ -901,8 +905,7 @@ header .categorias a.activo {
       padding: 35px 0px;
   }
 
-  .pie-pagina .grupo-1 .box figure img{
-    width: 100px;
+  .pie-pagina .box {
+    text-align: center;
   }
 }
- 

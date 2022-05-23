@@ -4,9 +4,94 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--LINKS A CSS Y GOOGLE FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/portafolio.css') }}"
+    />
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/animate/animate.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css')}}"/>
+
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+
     <title>Portafolio</title>
   </head>
   <body>
+    <!--MENU DE NAVEGACION-->
+    <div class="container-fluid p-0">
+      <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+          
+          <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+              <img src="{{ url_for('static', filename='images/MicrosoftTeams-image (9).png') }}"  alt="">
+              <div class="navbar-nav m-auto py-0">
+                  <a href="{{url_for('index')}}" class="nav-item nav-link active">Inicio</a>
+                  <a href="#servicios" class="nav-item nav-link">Servicios</a>
+                  <a href="{{url_for('portafolio')}}" class="nav-item nav-link">Portafolio</a>
+                  <a href="{{url_for('preguntas')}}" class="nav-item nav-link">Q&A</a>
+                  <a href="{{url_for('login')}}" class="nav-item nav-link">Login</a>
+              </div>
+          </div>
+      </nav>
+  </div>
+    <!--CUERPO DE LA PAGINA-->
+    <div class="contenedor">
+      <header>
+        <div class="titulo">
+          <h1>Portafolio</h1>
+        </div>
+        <!--seccion de busqueda-->
+        <form action="">
+          <input type="text" 
+          class="barra-busqueda" 
+          id="barra-busqueda" 
+          placeholder="Buscar">
+        </form>
+        <!-- seleccion de categorias-->
+        <div class="categorias" id="categorias">
+          <a href="#" class="activo">Todos</a>
+          <a href="#">Tintes</a>
+          <a href="#">Cortes</a>
+          <a href="#">Productos</a>
+        </div>
+      </header>
+
+      <!--SECCION DE IMAGENES-->
+      
+      <section class="grid" id="grid">
+        {% for trabajo in trabajos %}
+        <div class="item"
+        data-categoria={{trabajo[5]}}
+        data-descripcion={{trabajo[2]}}>
+          
+          <div class="item-contenido">
+              <!--Traer imagen-->
+              <img src="{{trabajo[4]}}" alt="" />
+          </div>
+        </div>
+        {% endfor%}
+      </section>
+
+      <section class="overlay" id="overlay">
+        <div class="contenedor-img">
+          <button id="btn-cerrar-popup"><i class="fas fa-times"></i></button>
+          <img src="" alt="">
+        </div>
+        <p class="descripcion"></p>
+      </section>
+    </div> 
+    <!--
     <table>
       <thead>
         <tr>
@@ -29,5 +114,52 @@
         </tr>
       </tbody>
     </table>
+    -->
+
+    <!--FOOTER-->
+    <footer class="pie-pagina">
+      <div class="grupo-1">
+          <div class="box">
+              <figure>
+                  <a href="#">
+                      <img src="{{ url_for('static', filename='images/MicrosoftTeams-image (9).png') }}">
+                  </a>
+              </figure>
+          </div>
+          <div class="box">
+              <p>NUESTRO HORARIO</p>
+              <p>Lunes a viernes de 10:00 am a 6:00 pm </p>
+              <p>Sabados y domingos de 10:00 a 4:00 pm</p>
+          </div>
+          <div class="box">
+              <div class="mapa">
+                  <iframe class="mapa"
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3396.8917447903664!2d-106.36885588535375!3d31.636814281331223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e7673f9d2d1031%3A0x75147ec978d2812!2sEstetica%20La%20femme!5e0!3m2!1ses-419!2sus!4v1652123477322!5m2!1ses-419!2sus" width="330px" height="185px" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+  <!--MURI-->
+  <script src="https://cdn.jsdelivr.net/npm/web-animations-js@2.3.2/web-animations.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/muuri@0.9.5/dist/muuri.min.js"></script>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+  <script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/tempusdominus/js/moment.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/tempusdominus/js/moment-timezone.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    
+
+  <!--SCRIPTS-->
+  <script src="{{ url_for('static', filename='js/portafolio.js') }}"></script>
+  
   </body>
 </html>

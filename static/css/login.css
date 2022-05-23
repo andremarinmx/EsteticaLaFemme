@@ -1,85 +1,110 @@
-body{
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    height: 85vh;
     background-color: #faf8f8;
-    align-items: center;
-    justify-content: center;
 }
 
-.Contenedor{
-    margin:auto;
-    margin-top: 5%;
+.login-container {
+    height: 38em;
+    width: 60em;
+    margin: 2em auto;
+    border-radius: 10px;
+    display: flex;
     background-color: #fff;
-    display: -webkit-flex;
-    width: 80%;
-    height: 500px;
+    justify-content: space-between;
+    overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    border-radius: 15px;
-
-}
-.Contenedor img{
-    width: 50%;
-    height: auto;
-    object-fit: cover;
 }
 
-.Contenedor .derecha{
+.login-info-container {
     width: 50%;
-    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-  /*  background-color: aqua;*/
-
+    padding-top: 0.5rem;
 }
 
-
-.Contenedor .derecha img{
-    width: 26%;
+.login-info-container img {
+    margin-top: 7em;
+    width: 40%;
     height: auto;
-    
 }
 
-.Contenedor .derecha input{
-    width: 55%;
-    height: 30px;
+.image-container {
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.title {
+    margin-top: 0.5em;
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: capitalize;
+    font-size: 2.25rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.inputs-container {
+    height: 55%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+.input, .btn {
+    width: 90%;
+    height: 3.125rem;
     font-family: 'Josefin Sans', sans-serif;
-    margin-top: 3%;
-    border-radius: 5px;
-    padding-left: 10px;
+    font-size: 1em;
 }
 
-.Contenedor .derecha button{
-    width: 60%;
+.input {
+    padding-left: 20px;
+    border: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+
+.input:hover {
+    border: 2px solid #eecbd2;
+}
+
+.btn {
+    width: 80%;
     height:35px;
-    font-family: 'Josefin Sans', sans-serif;
     font-weight: 500;
-    border-radius: 5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
     background-color: #000;
     color: #fff;
     margin-top: 4%;
     transition: all 1s ease;
+    cursor: pointer;
 }
 
-.Contenedor .derecha button:hover{
+.btn:hover{
     background: #eecbd2;
     color: #000 !important;
 }
 
-.Contenedor .derecha h1{
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-}
-
-.Contenedor .derecha h3{
-    font-family: 'Cormorant Garamond', serif;
-}
-
-.Contenedor .derecha a{
-    text-decoration: none;
-    color:rgba(92, 92, 92, 0.809);
-    transition: all 1s ease;
-}
-
-.Contenedor .derecha a:hover{
-    text-decoration: none;
-    color: #000;
+.inputs-container p {
+    margin: 0;
 }
 
 .contraseñaInv h3{
@@ -87,5 +112,49 @@ body{
     font-size: medium;
     font-weight: lighter;
     color: rgb(188, 70, 70);
+}
+
+@media screen and (max-width: 1000px) {
+    .login-container {
+        width: 75%;
+        height: 60%;
+        margin-top: 15rem;
+    }
+    .login-info-container {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .image-container {
+        display: none;
+    } 
+    
+    .login-info-container img {
+        margin-top: 7em;
+        width: 70%;
+        height: auto;
+    }
+
+    .btn {
+        width: 80%;
+        height:65px;
+    }
+
+    .inputs-container {
+        height: 75%;
+        width: 80%;
+}
+
+@media screen and (max-width: 650px) {
+    .login-container {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .login-container {
+        height: 90%;
+    }
+
 }
 

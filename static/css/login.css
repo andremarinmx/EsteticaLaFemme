@@ -40,7 +40,7 @@ body {
 }
 
 .title {
-    margin-top: 0.5em;
+    margin-top: 0.8em;
     font-family: 'Cormorant Garamond', serif;
     text-transform: capitalize;
     font-size: 2.25rem;
@@ -68,7 +68,7 @@ body {
 
 .input {
     padding-left: 20px;
-    border: none;
+    border-color: #000;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -116,9 +116,9 @@ body {
 
 @media screen and (max-width: 1000px) {
     .login-container {
-        width: 75%;
-        height: 60%;
-        margin-top: 15rem;
+        width: 80%;
+        height: 100%;
+        margin-top: 10rem;
     }
     .login-info-container {
         width: 100%;
@@ -130,19 +130,36 @@ body {
     } 
     
     .login-info-container img {
-        margin-top: 7em;
-        width: 70%;
+        margin-top: 10em;
+        width: 85%;
         height: auto;
     }
 
     .btn {
+        margin-top: 3em;
+        font-size: 30px;
+        background-color: #be9290;
+        color:#000;
         width: 80%;
-        height:65px;
+        height:5em;
+    }
+
+    .title {
+        font-size: 5em;
     }
 
     .inputs-container {
-        height: 75%;
+        height: 30em;
         width: 80%;
+}
+
+.input {
+    padding-left: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    height: 4em;
+    font-size: 30px;
+    margin-top: 2em;
 }
 
 @media screen and (max-width: 650px) {

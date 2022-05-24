@@ -4,26 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
     <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='css/agregar_trabajo.css') }}"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/agregar_trabajo.css') }}"
     />
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link
+      rel="shortcut icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+    />
     <title>Agregar trabajo</title>
   </head>
   <body>
-   <nav class="navegador">
+    <nav class="navegador">
       <img
-      src="{{ url_for('static', filename='images/La femme logos.png') }}"
-      alt="Cortes"/>
+        src="{{ url_for('static', filename='images/La femme logos.png') }}"
+        alt="Cortes"
+      />
       <a href="{{url_for('login')}}">Sign out</a>
-   </nav>
+    </nav>
     <div class="titulo">
       <h1>Agregar trabajo</h1>
     </div>
@@ -35,36 +45,41 @@
         method="post"
         enctype="multipart/form-data"
       >
-      <div class="opc_guardar">
-        <label for="nombre">Nombre</label>
-        <input class="cont_nombre" 
-          required
-          type="text"
-          placeholder="Nombre"
-          name="nombre"
-          id="nombre"
-        />
-      </div>
-      <div class="opc_guardar">
-        <label for="descripcion">Descripción</label>
-        <input class="cont_desc"
-          required
-          type="text"
-          placeholder="Descripción"
-          name="descripcion"
-          id="descripcion"
-        />
-      </div>
-      <div class="opc_guardar">
-        <label for="precio">Precio</label>
-        <input class="cont_precio"
-          required
-          type="number"
-          placeholder="Precio"
-          name="precio"
-          id="precio"
-        />
-      </div>
+        <div class="opc_guardar">
+          <label for="nombre">Nombre</label>
+          <input
+            class="cont_nombre"
+            required
+            type="text"
+            placeholder="Nombre"
+            name="nombre"
+            id="nombre"
+            maxlength="20"
+          />
+        </div>
+        <div class="opc_guardar">
+          <label for="descripcion">Descripción</label>
+          <input
+            class="cont_desc"
+            required
+            type="text"
+            placeholder="Descripción"
+            name="descripcion"
+            id="descripcion"
+            maxlength="30"
+          />
+        </div>
+        <div class="opc_guardar">
+          <label for="precio">Precio</label>
+          <input
+            class="cont_precio"
+            required
+            type="number"
+            placeholder="Precio"
+            name="precio"
+            id="precio"
+          />
+        </div>
 
         <!--CATEGORIA-->
         <div class="opc_guardar_cat">
@@ -78,15 +93,17 @@
 
         <div class="opc_guardar_img">
           <label for="imagen">Imagen</label>
-          <input class="agr_imagen"
-          required type="file" 
-          name="imagen" 
-          id="imagen" 
+          <input
+            class="agr_imagen"
+            required
+            type="file"
+            name="imagen"
+            id="imagen"
           />
-      </div>
-      <div class="div_btn_guardar">
-        <button type="submit" class="btn_guardar">Guardar</button>
-      </div>
+        </div>
+        <div class="div_btn_guardar">
+          <button type="submit" class="btn_guardar">Guardar</button>
+        </div>
       </form>
     </section>
     <div class="div_btn_volver">

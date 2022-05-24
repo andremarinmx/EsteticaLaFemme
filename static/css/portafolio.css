@@ -156,6 +156,7 @@ button::-moz-focus-inner,
 img {
     vertical-align: middle;
     border-style: none;
+    border-radius: 0.25rem;
 }
 
 .container,
@@ -681,7 +682,6 @@ img {
 }
 
 /*TERMINA MENU DE NAVEGACION*/
-
 .contenedor{
     width: 90%;
     max-width: 800px;
@@ -690,11 +690,11 @@ img {
 
 /*HEADER*/
 header{
-    padding: 40px 0;
+    padding: 10px 0;
 }
 header .titulo{
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     font-family: 'Cormorant Garamond', serif;
 }
 
@@ -702,7 +702,7 @@ header form {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	margin-bottom: 20px;
+	margin-bottom: 1px;
 }
 
 header .barra-busqueda{

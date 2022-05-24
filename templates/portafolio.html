@@ -12,6 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Josefin+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='images/favicon.ico') }}"
+  />
+
     <link
     rel="stylesheet"
     href="{{ url_for('static', filename='css/portafolio.css') }}"
@@ -61,9 +67,9 @@
         <!-- seleccion de categorias-->
         <div class="categorias" id="categorias">
           <a href="#" class="activo">Todos</a>
-          <a href="#">Tintes</a>
+       <a href="#">Tintes</a>
           <a href="#">Cortes</a>
-          <a href="#">Productos</a>
+          <a href="#">Productos</a> 
         </div>
       </header>
 
@@ -73,6 +79,7 @@
         {% for trabajo in trabajos %}
         <div class="item"
         data-categoria={{trabajo[5]}}
+        data-etiquetas={{trabajo[2]}}
         data-descripcion={{trabajo[2]}}>
           
           <div class="item-contenido">
@@ -91,7 +98,7 @@
         <p class="descripcion"></p>
       </section>
     </div> 
-    <!--
+    <!--aqui no va
     <table>
       <thead>
         <tr>
@@ -113,10 +120,9 @@
           {% endfor%}
         </tr>
       </tbody>
-    </table>
-    -->
+    </table>-->
+    
 
-    <!--FOOTER-->
   <!--FOOTER-->
   <footer class="pie-pagina">
     <div class="grupo-1">
